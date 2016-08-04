@@ -5,7 +5,7 @@
 
   ```YAML
   tag-ng-attribute:
-    - match: '\s+(([\[\(][a-zA-Z0-9:-]+[\]\)]|(\[\()[a-zA-Z0-9:-]+(\)\])|[\*#][a-zA-Z0-9:-]+)\s*(=)\s*)'
+    - match: '\s+(([\[\(][a-zA-Z0-9.:-]+[\]\)]|(\[\()[a-zA-Z0-9.:-]+(\)\])|[\*#][a-zA-Z0-9.:-]+)\s*(=)\s*)'
       captures:
         1: meta.attribute-with-value.html
         2: entity.other.attribute-name.ng.html
@@ -31,7 +31,7 @@
           scope: meta.attribute-with-value.html string.unquoted.html
         - match: ''
           pop: true
-    - match: '\s+([\[\(][a-zA-Z0-9:-]+[\]\)]|(\[\()[a-zA-Z0-9:-]+(\)\])|[\*#][a-zA-Z0-9:-]+)'
+    - match: '\s+([\[\(][a-zA-Z0-9.:-]+[\]\)]|(\[\()[a-zA-Z0-9.:-]+(\)\])|[\*#][a-zA-Z0-9.:-]+)'
       captures:
         1: entity.other.attribute-name.ng.html
   ```
