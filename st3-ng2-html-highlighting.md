@@ -71,4 +71,4 @@
 
 ## Result
 
-![screenshot](http://imgur.com/a/FUqJU)
+![screenshot](http://imgur.com/a/FUqJU.png)
