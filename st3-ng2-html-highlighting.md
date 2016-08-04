@@ -5,38 +5,38 @@
 
   ```YAML
   tag-ng-attribute:
-      - match: '\s+(([\[\(][a-zA-Z0-9:-]+[\]\)]|[\*][a-zA-Z0-9:-]+)\s*(=)\s*)'
-        captures:
-          1: meta.attribute-with-value.html
-          2: entity.other.attribute-name.ng.html
-          3: punctuation.separator.key-value.html
-        push:
-          - match: '"'
-            scope: punctuation.definition.string.begin.html
-            set:
-              - meta_scope: meta.attribute-with-value.html string.quoted.double.html
-              - match: '"'
-                scope: punctuation.definition.string.end.html
-                pop: true
-              - include: entities
-          - match: "'"
-            scope: punctuation.definition.string.begin.html
-            set:
-              - meta_scope: meta.attribute-with-value.html string.quoted.single.html
-              - match: "'"
-                scope: punctuation.definition.string.end.html
-                pop: true
-              - include: entities
-          - match: '(?:[^\s<>/''"]|/(?!>))+'
-            scope: meta.attribute-with-value.html string.unquoted.html
-          - match: ''
-            pop: true
-      - match: '\s+([\[\(][a-zA-Z0-9:-]+[\]\)]|[\*][a-zA-Z0-9:-]+)'
-        captures:
-          1: entity.other.attribute-name.ng.html
+    - match: '\s+(([\[\(][a-zA-Z0-9:-]+[\]\)]|(\[\()[a-zA-Z0-9:-]+(\)\])|[\*#][a-zA-Z0-9:-]+)\s*(=)\s*)'
+      captures:
+        1: meta.attribute-with-value.html
+        2: entity.other.attribute-name.ng.html
+        3: punctuation.separator.key-value.html
+      push:
+        - match: '"'
+          scope: punctuation.definition.string.begin.html
+          set:
+            - meta_scope: meta.attribute-with-value.html string.quoted.double.html
+            - match: '"'
+              scope: punctuation.definition.string.end.html
+              pop: true
+            - include: entities
+        - match: "'"
+          scope: punctuation.definition.string.begin.html
+          set:
+            - meta_scope: meta.attribute-with-value.html string.quoted.single.html
+            - match: "'"
+              scope: punctuation.definition.string.end.html
+              pop: true
+            - include: entities
+        - match: '(?:[^\s<>/''"]|/(?!>))+'
+          scope: meta.attribute-with-value.html string.unquoted.html
+        - match: ''
+          pop: true
+    - match: '\s+([\[\(][a-zA-Z0-9:-]+[\]\)]|(\[\()[a-zA-Z0-9:-]+(\)\])|[\*#][a-zA-Z0-9:-]+)'
+      captures:
+        1: entity.other.attribute-name.ng.html
   ```
 
-  This is basically a copy of existing `tag-generic-attribute:` with modified regexp for `match:` to target Angular 2 attributes starting with `*`, enclosed in `[]` or `()`.
+  This is basically a copy of existing `tag-generic-attribute:` with modified regexp for `match:` to target Angular 2 attributes starting with `*` or `#`, enclosed in `[]` or `()` or `[()]`.
 
 4. At the bottom under `tag-stuff:` add:
 
