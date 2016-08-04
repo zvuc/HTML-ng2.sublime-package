@@ -68,3 +68,7 @@
   ```
   Replace the color HEX code inside the last `<string>` to one of the theme colors in your color scheme.
 3. Save and replace existing file.
+
+## Result
+
+![screenshot](http://imgur.com/a/FUqJU)
