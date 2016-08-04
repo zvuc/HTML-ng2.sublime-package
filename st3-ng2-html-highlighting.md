@@ -40,7 +40,7 @@
 
 4. At the bottom under `tag-stuff:` add:
 
-  ```
+  ```YAML
   - include: tag-ng-attribute
   ```
 
@@ -51,7 +51,7 @@
 1. Open up the package for the Color Scheme you're using, find the `*.tmTheme` file.
 2. Add following code inside `<array>`:
 
-  ```
+  ```XML
   <dict>
   	<key>name</key>
   	<string>Tag ng attribute</string>
