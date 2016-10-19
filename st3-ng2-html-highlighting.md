@@ -1,14 +1,17 @@
 ## Fix ng2 attributes not being highlighted like other HTML attributes correctly
+
+ADD: You can also install [PackageResourceViewer](https://packagecontrol.io/packages/PackageResourceViewer) from Package Control to open up and modify the package contents directly without having to manually rename, unpackage and copy.
+
 1. Find Sublime Text 3.app in Applications, View Package Contents
 2. Open `Contents/MacOS/Packages/HTML.sublime-package` (Rename to .zip, unpackage it)
 3. In `HTML.sublime-syntax` file, add following under `tag-event-attribute`:
 
   ```YAML
-  tag-ng-attribute:
+  tag-ng2-attribute:
     - match: '\s+(([\[\(][a-zA-Z0-9.:-]+[\]\)]|(\[\()[a-zA-Z0-9.:-]+(\)\])|[\*#][a-zA-Z0-9.:-]+)\s*(=)\s*)'
       captures:
         1: meta.attribute-with-value.html
-        2: entity.other.attribute-name.ng.html
+        2: entity.other.attribute-name.ng2.html
         3: punctuation.separator.key-value.html
       push:
         - match: '"'
@@ -33,7 +36,7 @@
           pop: true
     - match: '\s+([\[\(][a-zA-Z0-9.:-]+[\]\)]|(\[\()[a-zA-Z0-9.:-]+(\)\])|[\*#][a-zA-Z0-9.:-]+)'
       captures:
-        1: entity.other.attribute-name.ng.html
+        1: entity.other.attribute-name.ng2.html
   ```
 
   This is basically a copy of existing `tag-generic-attribute:` with modified regexp for `match:` to target Angular 2 attributes starting with `*` or `#`, enclosed in `[]` or `()` or `[()]`.
@@ -41,7 +44,7 @@
 4. At the bottom under `tag-stuff:` add:
 
   ```YAML
-  - include: tag-ng-attribute
+  - include: tag-ng2-attribute
   ```
 
 5. Save the modified package as `.sublime-package` and replace the original file. You can also rename files to something else if you want to keep the original HTML.sublime-package and have a separate package like HTML-ng2.sublime-package.
@@ -54,9 +57,9 @@
   ```XML
   <dict>
   	<key>name</key>
-  	<string>Tag ng attribute</string>
+  	<string>Tag ng2 attribute</string>
   	<key>scope</key>
-  	<string>entity.other.attribute-name.ng</string>
+  	<string>entity.other.attribute-name.ng2</string>
   	<key>settings</key>
   	<dict>
   		<key>fontStyle</key>
