@@ -1,4 +1,12 @@
-## Fix ng2 attributes not being highlighted like other HTML attributes correctly
+# Fix ng2 attributes not being highlighted like other HTML attributes correctly
+
+## Quick Apply
+Download either [HTML-ng2.sublime-package](/HTML-ng2.sublime-package) or [HTML.sublime-package](HTML.sublime-package) depending on if you want to keep it separate from stock HTML syntax or not. (Applying as HTML.sublime-package will override default HTML package.) Copy the downloaded package to `Library/Application Support/Sublime Text 3/Installed Packages`. (Tip: You can open this directory quickly by bringing up Command Palette (Cmd+Shift+P) and typing 'Preferences: Browse Packages').
+
+Sublime Text 3 will probably show an error message about HTML syntax not being able to load, then you'll be fine. If not, try quitting the app and relaunching it.
+
+
+## Manual Edit
 
 ADD: You can also install [PackageResourceViewer](https://packagecontrol.io/packages/PackageResourceViewer) from Package Control to open up and modify the package contents directly without having to manually rename, unpackage and copy.
 
@@ -34,7 +42,7 @@ ADD: You can also install [PackageResourceViewer](https://packagecontrol.io/pack
           scope: meta.attribute-with-value.html string.unquoted.html
         - match: ''
           pop: true
-    - match: '\s+([\[\(][a-zA-Z0-9.:-]+[\]\)]|(\[\()[a-zA-Z0-9.:-]+(\)\])|[\*#][a-zA-Z0-9.:-]+)'
+    - match: '\s+([\[\(][a-zA-Z0-9.:-]+[\]\)]|(\[\()[a-zA-Z0-9.:-]+(\)\])|[\*#][a-zA-Z0-9._:-]+)'
       captures:
         1: entity.other.attribute-name.ng2.html
   ```
@@ -47,7 +55,7 @@ ADD: You can also install [PackageResourceViewer](https://packagecontrol.io/pack
   - include: tag-ng2-attribute
   ```
 
-5. Save the modified package as `.sublime-package` and replace the original file. You can also rename files to something else if you want to keep the original HTML.sublime-package and have a separate package like HTML-ng2.sublime-package.
+5. Save the modified package as `.sublime-package` and copy to `Library/Application Support/Sublime Text 3/Installed Packages`. If you want to keep the HTML-ng2 package separate from stock HTML package, rename `HTML.sublime-syntax` file to something different like `HTML-ng2` so it won't overwrite the default one. 
  
 
 ## To add custom color to your Color Scheme
