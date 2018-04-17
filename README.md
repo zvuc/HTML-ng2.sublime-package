@@ -16,7 +16,7 @@ ADD: You can also install [PackageResourceViewer](https://packagecontrol.io/pack
 
   ```YAML
   tag-ng2-attribute:
-    - match: '\s+(([\[\(][a-zA-Z0-9.:-]+[\]\)]|(\[\()[a-zA-Z0-9.:-]+(\)\])|[\*#][a-zA-Z0-9.:-]+)\s*(=)\s*)'
+    - match: '\s+(([\[\(][a-zA-Z0-9.%:-]+[\]\)]|(\[\()[a-zA-Z0-9.%:-]+(\)\])|[\*#][a-zA-Z0-9.%:-]+)\s*(=)\s*)'
       captures:
         1: meta.attribute-with-value.html
         2: entity.other.attribute-name.ng2.html
@@ -77,7 +77,7 @@ ADD: You can also install [PackageResourceViewer](https://packagecontrol.io/pack
   	</dict>
   </dict>
   ```
-  Replace the color HEX code inside the last `<string>` to one of the theme colors in your color scheme.
+  Replace the color HEX code inside the last `<string>` to one of the theme colors in your color scheme. (Example user here is for the [Tomorrow Night](https://github.com/chriskempson/tomorrow-theme) Bright color scheme.)
 3. Save and replace existing file.
 
 ## Result
